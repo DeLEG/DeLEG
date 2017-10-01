@@ -4,17 +4,17 @@ require 'optim';
 require 'gnuplot';
 
 --totalNumLines
-data_fer_file = io.open('1.txt')
+data_healthy_file = io.open('1.txt')
 numLines = 0
-for line in data_fer_file:lines() do
+for line in data_healthy_file:lines() do
     numLines = numLines+1
 end
 print(numLines)
-data_fer = torch.Tensor(numLines,6000)
-data_fer_labels = torch.ones(numLines)
-data_fer_file = io.open('1.txt')
+data_healthy = torch.Tensor(numLines,6000)
+data_healthy_labels = torch.ones(numLines)
+data_healthy_file = io.open('1.txt')
 LineNum = 0;
-for line in data_fer_file:lines() do
+for line in data_healthy_file:lines() do
     LineNum=LineNum+1
     A = line:split(" ")
     if (#A) == 6000 then
@@ -22,17 +22,17 @@ for line in data_fer_file:lines() do
     end
 end
 
-data_infer_file = io.open('0.txt')
+data_disease_file = io.open('0.txt')
 numLines = 0
-for line in data_infer_file:lines() do
+for line in data_disease_file:lines() do
 numLines = numLines+1
 end
 print(numLines)
-data_infer = torch.Tensor(numLines,6000)
-data_infer_labels = torch.ones(numLines)*2
-data_infer_file = io.open('0.txt')
+data_disease = torch.Tensor(numLines,6000)
+data_disease_labels = torch.ones(numLines)*2
+data_disease_file = io.open('0.txt')
 LineNum = 0;
-for line in data_infer_file:lines() do
+for line in data_disease_file:lines() do
     LineNum=LineNum+1
     A = line:split(" ")
     if (#A) == 6000 then
@@ -40,11 +40,11 @@ for line in data_infer_file:lines() do
     end
 end
 
-print(#data_fer)
-print(#data_infer)
+print(#data_healthy)
+print(#data_disease)
 
-trainData = torch.cat({data_fer,data_infer},1)
-trainLabels = torch.cat({data_fer_labels,data_infer_labels},1)
+trainData = torch.cat({data_healthy,data_disease},1)
+trainLabels = torch.cat({data_healthy_labels,data_disease_labels},1)
 print(#trainData)
 print(#trainLabels)
 
