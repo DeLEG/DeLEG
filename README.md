@@ -1,5 +1,6 @@
 # DeLEG
-Deep Learning for EpiGenomics data to predict phenotype
+**Deep Learning for EpiGenomics data to predict phenotype**
+
 
 `00_model.lua` : Model architecture file with kernel sizes and layer details. The model architecture is loaded in model_training.lua file
 
