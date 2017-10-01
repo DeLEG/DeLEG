@@ -4,47 +4,47 @@ require 'optim';
 require 'gnuplot';
 
 --totalNumLines
-data_fer_file = io.open('./test/FER18.txt')
+data_healthy_file = io.open('Healthy.txt')
 numLines = 0
-for line in data_fer_file:lines() do
+for line in data_healthy_file:lines() do
     numLines = numLines+1
 end
 print(numLines)
-data_fer = torch.Tensor(numLines,6000)
-data_fer_labels = torch.ones(numLines)
-data_fer_file = io.open('./test/FER18.txt')
+data_healthy = torch.Tensor(numLines,6000)
+data_healthy_labels = torch.ones(numLines)
+data_healthy_file = io.open('Healthy.txt')
 LineNum = 0;
-for line in data_fer_file:lines() do
+for line in data_healthy_file:lines() do
     LineNum=LineNum+1
     A = line:split(" ")
     if (#A) == 6000 then
-        data_fer[LineNum]=torch.Tensor(A)
+        data_healthy[LineNum]=torch.Tensor(A)
     end
 end
 
-data_infer_file = io.open('./test/INFR.txt')
+data_disease_file = io.open('Disease.txt')
 numLines = 0
-for line in data_infer_file:lines() do
+for line in data_disease_file:lines() do
 numLines = numLines+1
 end
 print(numLines)
-data_infer = torch.Tensor(numLines,6000)
-data_infer_labels = torch.ones(numLines)*2
-data_infer_file = io.open('./test/INFR.txt')
+data_disease = torch.Tensor(numLines,6000)
+data_disease_labels = torch.ones(numLines)*2
+data_disease_file = io.open('./test/INFR.txt')
 LineNum = 0;
-for line in data_infer_file:lines() do
+for line in data_disease_file:lines() do
     LineNum=LineNum+1
     A = line:split(" ")
     if (#A) == 6000 then
-        data_infer[LineNum]=torch.Tensor(A)
+        data_disease[LineNum]=torch.Tensor(A)
     end
 end
 
-print(#data_fer)
-print(#data_infer)
+print(#data_healthy)
+print(#data_disease)
 
-testData = torch.cat({data_fer,data_infer},1)
-testlabels = torch.cat({data_fer_labels,data_infer_labels},1)
+testData = torch.cat({data_healthy,data_disease},1)
+testlabels = torch.cat({data_healthy_labels,data_disease_labels},1)
 print(#testData)
 print(#testlabels)
 
@@ -65,7 +65,7 @@ print('Testing accuracy')
 correct = 0
 class_perform = {0,0}
 class_size = {0,0}
-classes = {'FER', 'INF'}
+classes = {'HEALTHY', 'DISEASE'}
 for i=1,N do
     local groundtruth = testlabels[i]
     local example = torch.Tensor(6000,1);
