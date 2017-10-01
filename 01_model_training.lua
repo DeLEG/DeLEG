@@ -18,7 +18,7 @@ for line in data_healthy_file:lines() do
     LineNum=LineNum+1
     A = line:split(" ")
     if (#A) == 6000 then
-        data_fer[LineNum]=torch.Tensor(A)
+        data_healthy[LineNum]=torch.Tensor(A)
     end
 end
 
@@ -36,7 +36,7 @@ for line in data_disease_file:lines() do
     LineNum=LineNum+1
     A = line:split(" ")
     if (#A) == 6000 then
-        data_infer[LineNum]=torch.Tensor(A)
+        data_disease[LineNum]=torch.Tensor(A)
     end
 end
 
