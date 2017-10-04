@@ -20,7 +20,9 @@ The generated model is trained to distinguish the healthy and the diseased indiv
 Our workflow consists of 3 parts; 
 
 i) Otsu thresholding for segmentation, 
+
 ii) enrichment score of the window around TSS and 
+
 iii) train a CNN (Convolutional Neural Network) for classification.
 
 Otsu thresholding for segmentation: ==> It takes as an input the ChIP-seq data (Chromatin Immunoprecipitation massively parallel DNA sequencing to identify the binding sites of DNA-associated proteins). In this step, Otsu is used to remove the background and filter out peaks by thresholding the ChIP-seq data. It finally returns the "important" regions (peaks) of the raw data.
