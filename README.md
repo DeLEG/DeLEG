@@ -17,7 +17,11 @@ The concept of implementing AI with Bioinformatics data.
 The generated model is trained to distinguish the healthy and the diseased individuals in a set of mixed samples.
 
 ## How we built it?
-Our workflow consists of 3 parts; i) Otsu thresholding for segmentation, ii) enrichment score of the window around TSS and iii) train a CNN (Convolutional Neural Network) for classification.
+Our workflow consists of 3 parts; 
+
+i) Otsu thresholding for segmentation, 
+ii) enrichment score of the window around TSS and 
+iii) train a CNN (Convolutional Neural Network) for classification.
 
 Otsu thresholding for segmentation: ==> It takes as an input the ChIP-seq data (Chromatin Immunoprecipitation massively parallel DNA sequencing to identify the binding sites of DNA-associated proteins). In this step, Otsu is used to remove the background and filter out peaks by thresholding the ChIP-seq data. It finally returns the "important" regions (peaks) of the raw data.
 
@@ -32,7 +36,8 @@ Accomplishments that we're proud of
 Bridging the gap between Bioinformatics and Machine Learning. This model is a novelty in itself and could be used for various future research in health care and other sectors.
 
 ## What we learned?
-1) Epigenetic modifications can be found not only in gene and TSS but also in intergenic regions. 2) How to learn the prospect of Deep Learning in Massive Parallel DNA Sequencing data.
+1) Epigenetic modifications can be found not only in gene and TSS but also in intergenic regions. 
+2) How to learn the prospect of Deep Learning in Massive Parallel DNA Sequencing data.
 
 ## What's next for DeLEG Deep Learning EpiGenomic model?
 This model can be sold to hospitals, clinics, research centers, health and other laboratories.
